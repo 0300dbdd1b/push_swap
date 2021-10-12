@@ -13,6 +13,7 @@ SRC_NAME=		./utils/get_val.c 			\
 				./utils/init_stacks.c 		\
 				./utils/operatioms.c 		\
 				./utils/print_op.c 			\
+				./utils/ft_error.c 			\
 				./str_is_int.c 				\
 				./args_to_stack.c 			\
 				./push_swap.c 				\
@@ -31,8 +32,7 @@ $(NAME): ${LIBFT_A}  $(OBJ)
 
 
 $(LIBFT_DIR):
-			git clone https://github.com/Marcaday/19_libft.git 
-			git checkout normV3
+			git clone  --branch normV3 https://github.com/Marcaday/19_libft.git			git checkout normV3
 			mv ./19_libft/libft .
 			rm -rf ./19_libft
 			
