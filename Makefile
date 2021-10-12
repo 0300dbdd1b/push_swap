@@ -8,14 +8,14 @@ BUFFER_SIZE=	16
 NAME=			push_swap
 
 
-SRC_DIR =		./srcs 
-SRC_NAME=		./utils/get_val.c 			\
-				./utils/init_stacks.c 		\
-				./utils/operatioms.c 		\
-				./utils/print_op.c 			\
-				./str_is_int.c 				\
-				./args_to_stack.c 			\
-				./push_swap.c 				\
+SRC_DIR =		./srcs/
+SRC_NAME=		utils/get_val.c 			\
+				utils/init_stacks.c 		\
+				utils/operatioms.c 		\
+				utils/print_op.c 			\
+				str_is_int.c 				\
+				args_to_stack.c 			\
+				push_swap.c 				\
 
 
 SRCS=			${addprefix ${SRC_DIR}, ${SRC_NAME}}
