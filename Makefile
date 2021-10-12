@@ -21,36 +21,35 @@ SRC_NAME=		./utils/get_val.c 			\
 SRCS=			${addprefix ${SRC_DIR}, ${SRC_NAME}}
 
 
-OBJ=			$(SRCS:.c=.o)
+OBJS=			$(SRCS:.c=.o)
 
 LIBFT_DIR= 		./libft
 LIBFT_A=		./libft/libft.a
 
-$(NAME): ${LIBFT_A}  $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(INCLUDES) $(OBJ) $(LIB)
+$(NAME): ${LIBFT_A}  ${OBJS}
+	$(CC) $(CFLAGS) -o $(NAME) $(INCLUDES) $(OBJS) $(LIB)
 
 
 $(LIBFT_DIR):
-			git clone https://github.com/Marcaday/19_libft.git 
-			git checkout normV3
+			git clone --branch normV3 https://github.com/Marcaday/19_libft.git 
 			mv ./19_libft/libft .
 			rm -rf ./19_libft
 			
 
 $(LIBFT_A):		${LIBFT_DIR}
-			Make -C ./libft	
+			make -C ./libft	
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) $(INCLUDES) -D BUFFER_SIZE=$(BUFFER_SIZE) -o $@ $<
+	${CC} -c ${CFLAGS} ${INCLUDES} -D BUFFER_SIZE=${BUFFER_SIZE} -o $@ $<
 
-all: $(NAME)
+all: ${NAME}
 
 clean: 
-	@rm -rf $(OBJ)
+	@rm -rf ${OBJS}
 	make -C ./libft clean
 
 fclean: clean
-	@rm -rf $(NAME)
+	@rm -rf ${NAME}
 	make -C ./libft fclean
 
 re: fclean $(NAME)
